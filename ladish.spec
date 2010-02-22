@@ -43,6 +43,7 @@ and the ladish_control command line app for headless operation.
 Summary:	Tools to configure Jack
 Group:		Sound
 Requires:	jackit >= 1.9.0
+Requires:	pygtk2.0
 Requires:	python-vte python-pyxml
 Provides:	laditools
 %description -n laditools
