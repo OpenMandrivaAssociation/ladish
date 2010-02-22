@@ -14,7 +14,6 @@ Group:          Sound
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot 
 
 Requires:	laditools
-BuildRequires:  waf
 BuildRequires:  libjack-devel >= 1.9.0
 BuildRequires:  libuuid-devel
 BuildRequires:  libdbus-1-devel
