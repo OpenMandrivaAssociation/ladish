@@ -63,7 +63,7 @@ cd laditools
 python setup.py install --prefix=%{buildroot}%{_prefix}
 
 %clean
-rm -rf %{buildroot}
+#rm -rf %{buildroot}
 
 %files 
 %defattr(-,root,root)
@@ -87,8 +87,8 @@ rm -rf %{buildroot}
 %{_bindir}/ladilog
 %{_bindir}/laditray
 %{_bindir}/wmladi
-%{_libdir}/python2.6/site-packages/laditools
-%{_libdir}/python2.6/site-packages/laditools-1.0_rc1-py2.6.egg-info
+/usr/lib/python2.6/site-packages/laditools
+/usr/lib/python2.6/site-packages/laditools-1.0_rc1-py2.6.egg-info
 %{_datadir}/applications/*
 %{_datadir}/laditools/*
 %{_datadir}/pixmaps/*.svg
