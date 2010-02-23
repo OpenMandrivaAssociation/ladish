@@ -19,7 +19,7 @@ BuildRequires:  libuuid-devel
 BuildRequires:  libdbus-1-devel
 BuildRequires:  expat-devel
 BuildRequires:  gtk2-devel
-BuildRequires:  libglade2.0_0-devel
+BuildRequires:  libglade2-devel
 BuildRequires:  dbus-glib-devel
 BuildRequires:  boost-devel
 BuildRequires:  flowcanvas-devel
