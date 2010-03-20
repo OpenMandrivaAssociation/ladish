@@ -13,7 +13,7 @@ License:        GPLv2
 Group:          Sound
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot 
 
-Requires:	laditools
+Requires:   laditools
 BuildRequires:  libjack-devel >= 1.9.0
 BuildRequires:  libuuid-devel
 BuildRequires:  libdbus-1-devel
@@ -24,7 +24,6 @@ BuildRequires:  dbus-glib-devel
 BuildRequires:  boost-devel
 BuildRequires:  flowcanvas-devel
 BuildRequires:  pygtk2.0-devel
-BuildRequires:  pygtk2.0-libglade
 
 
 %description
@@ -39,12 +38,12 @@ Ladish has a GUI frontend called gladish, based on lpatchage (LADI Patchage)
 and the ladish_control command line app for headless operation.
 
 %package -n laditools
-Summary:	Tools to configure Jack
-Group:		Sound
-Requires:	jackit >= 1.9.0
-Requires:	pygtk2.0
-Requires:	python-vte python-pyxml
-Provides:	laditools
+Summary:    Tools to configure Jack
+Group:      Sound
+Requires:   jackit >= 1.9.0
+Requires:   pygtk2.0 pygtk2.0-libglade
+Requires:   python-vte python-pyxml 
+Provides:   laditools
 %description -n laditools
 A suite of tools to configure and control the Jack Audio Connection Kit.
 Laditools contains laditray, a tray icon control tool for Jack D-Bus.
