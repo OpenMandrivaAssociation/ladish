@@ -1,6 +1,6 @@
 %define name    ladish
 %define version 0.2
-%define release %mkrel 2
+%define release %mkrel 3
 
 Name:           %{name} 
 Summary:        LADI Audio Session Handler
@@ -41,7 +41,7 @@ and the ladish_control command line app for headless operation.
 Summary:    Tools to configure Jack
 Group:      Sound
 Requires:   jackit >= 1.9.0
-Requires:   pygtk2.0 pygtk2.0-libglade
+Requires:   pygtk2.0 pygtk2.0-libglade librsvg
 Requires:   python-vte python-pyxml 
 Provides:   laditools
 %description -n laditools
