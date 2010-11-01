@@ -94,7 +94,7 @@ python setup.py install --prefix=%{buildroot}%{_prefix}
 %{_bindir}/jmcore
 %{_bindir}/ladiconfd
 %{_bindir}/ladish_control
-%{_libdir}/libalsapid.so
+%{_prefix}/lib/libalsapid.so
 
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/gladish.ui
