@@ -9,9 +9,9 @@ Name:           ladish
 Summary:        LADI Audio Session Handler
 Version:        0.3
 %if %branch
-Release: %mkrel -c %git_snapshot 1
+Release: 		%mkrel -c %git_snapshot 1
 %else
-Release: %mkrel 1
+Release: 		%mkrel 1
 %endif
 
 %if %branch
@@ -26,6 +26,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 Requires:   laditools
 BuildRequires:  libjack-devel >= 1.9.0
+BuildRequires:  alsa-lib-devel
 BuildRequires:  libuuid-devel
 BuildRequires:  libdbus-1-devel
 BuildRequires:  expat-devel
@@ -55,6 +56,7 @@ Requires:   jackit >= 1.9.0
 Requires:   pygtk2.0 pygtk2.0-libglade librsvg
 Requires:   python-vte python-pyxml 
 Provides:   laditools
+
 %description -n laditools
 A suite of tools to configure and control the Jack Audio Connection Kit.
 Laditools contains laditray, a tray icon control tool for Jack D-Bus.
