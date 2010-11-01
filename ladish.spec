@@ -1,13 +1,24 @@
-%define name    ladish
-%define version 0.2
-%define release %mkrel 3
+%define branch 1
+%{?_branch: %{expand: %%global branch 1}}
 
-Name:           %{name} 
+%if %branch
+%define git_snapshot git20101101
+%endif
+
+Name:           ladish
 Summary:        LADI Audio Session Handler
-Version:        %{version} 
-Release:        %{release}
+Version:        0.3
+%if %branch
+Release: %mkrel -c %git_snapshot 1
+%else
+Release: %mkrel 1
+%endif
 
+%if %branch
+Source:         http://ladish.org/download/%{name}-%version.%git_snapshot.tar.bz2
+%else
 Source:         http://ladish.org/download/%name-%version.tar.bz2
+%endif
 URL:            http://ladish.org
 License:        GPLv2
 Group:          Sound
@@ -19,11 +30,11 @@ BuildRequires:  libuuid-devel
 BuildRequires:  libdbus-1-devel
 BuildRequires:  expat-devel
 BuildRequires:  gtk2-devel
-BuildRequires:  libglade2-devel
 BuildRequires:  dbus-glib-devel
 BuildRequires:  boost-devel
-BuildRequires:  flowcanvas-devel
+BuildRequires:  flowcanvas-devel >= 0.6.4
 BuildRequires:  pygtk2.0-devel
+BuildRequires:  python-yaml
 
 
 %description
@@ -48,8 +59,13 @@ Provides:   laditools
 A suite of tools to configure and control the Jack Audio Connection Kit.
 Laditools contains laditray, a tray icon control tool for Jack D-Bus.
 This package is mandatory for installing the LADI Audio Session Handler.
+
 %prep
+%if %branch
+%setup -q -n %{name}-%{version}.%git_snapshot
+%else
 %setup -q
+%endif
 
 %build
 ./waf configure --prefix=%{_prefix} 
@@ -73,11 +89,20 @@ python setup.py install --prefix=%{buildroot}%{_prefix}
 
 %{_bindir}/gladish
 %{_bindir}/ladishd
+%{_bindir}/jmcore
+%{_bindir}/ladiconfd
 %{_bindir}/ladish_control
+%{_libdir}/libalsapid.so
+
 %dir %{_datadir}/%{name}
-%{_datadir}/%{name}/ladish-logo-128x128.png
-%{_datadir}/%{name}/gui.glade
+%{_datadir}/%{name}/gladish.ui
+%{_datadir}/%{name}/*.png
+
 %{_datadir}/dbus-1/services/org.ladish.service
+%{_datadir}/dbus-1/services/org.ladish.conf.service
+%{_datadir}/dbus-1/services/org.ladish.jmcore.service
+
+%{_iconsdir}/hicolor/*/apps/gladish.png
 
 %files -n laditools
 %doc %{_docdir}/laditools/*
@@ -86,8 +111,8 @@ python setup.py install --prefix=%{buildroot}%{_prefix}
 %{_bindir}/ladilog
 %{_bindir}/laditray
 %{_bindir}/wmladi
-/usr/lib/python2.6/site-packages/laditools
-/usr/lib/python2.6/site-packages/laditools-1.0_rc1-py2.6.egg-info
+%{python_sitelib}/laditools
+%{python_sitelib}/laditools-1.0_rc2-py%{python_version}.egg-info
 %{_datadir}/applications/*
 %{_datadir}/laditools/*
 %{_datadir}/pixmaps/*.svg
