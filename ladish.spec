@@ -2,7 +2,7 @@
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %branch
-%define git_snapshot git20101101
+%define git_snapshot git20101212
 %endif
 
 Name:           ladish
@@ -15,7 +15,7 @@ Release: 		%mkrel 1
 %endif
 
 %if %branch
-Source:         http://ladish.org/download/%{name}-%version.%git_snapshot.tar.bz2
+Source:         http://ladish.org/download/%{name}-%version-%git_snapshot.tar.bz2
 %else
 Source:         http://ladish.org/download/%name-%version.tar.bz2
 %endif
@@ -54,7 +54,7 @@ Summary:    Tools to configure Jack
 Group:      Sound
 Requires:   jackit >= 1.9.0
 Requires:   pygtk2.0 pygtk2.0-libglade librsvg
-Requires:   python-vte python-pyxml 
+Requires:   python-vte python-pyxml python-yaml 
 Provides:   laditools
 
 %description -n laditools
@@ -64,7 +64,7 @@ This package is mandatory for installing the LADI Audio Session Handler.
 
 %prep
 %if %branch
-%setup -q -n %{name}-%{version}.%git_snapshot
+%setup -q -n %{name}-%{version}-%{git_snapshot}
 %else
 %setup -q
 %endif
@@ -99,6 +99,8 @@ python setup.py install --prefix=%{buildroot}%{_prefix}
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/gladish.ui
 %{_datadir}/%{name}/*.png
+%dir %{_datadir}/%{name}/help
+%{_datadir}/%{name}/help/default.txt
 
 %{_datadir}/dbus-1/services/org.ladish.service
 %{_datadir}/dbus-1/services/org.ladish.conf.service
