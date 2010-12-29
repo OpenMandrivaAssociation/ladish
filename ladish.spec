@@ -36,6 +36,7 @@ BuildRequires:  boost-devel
 BuildRequires:  flowcanvas-devel >= 0.6.4
 BuildRequires:  pygtk2.0-devel
 BuildRequires:  python-yaml
+BuildRequires:  intltool
 
 
 %description
