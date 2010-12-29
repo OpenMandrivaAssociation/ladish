@@ -101,9 +101,9 @@ python setup.py install --prefix=%{buildroot}%{_prefix}
 %{_datadir}/%{name}/gladish.ui
 %{_datadir}/%{name}/*.png
 
-%{_localedir}/de/LC_MESSAGES/ladish.mo
-%{_localedir}/fr/LC_MESSAGES/ladish.mo
-%{_localedir}/ru/LC_MESSAGES/ladish.mo
+%{_datadir}/locale/de/LC_MESSAGES/ladish.mo
+%{_datadir}/locale/fr/LC_MESSAGES/ladish.mo
+%{_datadir}/locale/ru/LC_MESSAGES/ladish.mo
 
 %{_datadir}/dbus-1/services/org.ladish.service
 %{_datadir}/dbus-1/services/org.ladish.conf.service
