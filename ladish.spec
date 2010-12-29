@@ -2,7 +2,7 @@
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %branch
-%define git_snapshot git20101212
+%define git_snapshot git20101228
 %endif
 
 Name:           ladish
@@ -70,7 +70,7 @@ This package is mandatory for installing the LADI Audio Session Handler.
 %endif
 
 %build
-./waf configure --prefix=%{_prefix} 
+./waf configure --prefix=%{_prefix}
 ./waf
 
 %install
@@ -99,8 +99,10 @@ python setup.py install --prefix=%{buildroot}%{_prefix}
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/gladish.ui
 %{_datadir}/%{name}/*.png
-%dir %{_datadir}/%{name}/help
-%{_datadir}/%{name}/help/default.txt
+
+%{_localedir}/de/LC_MESSAGES/ladish.mo
+%{_localedir}/fr/LC_MESSAGES/ladish.mo
+%{_localedir}/ru/LC_MESSAGES/ladish.mo
 
 %{_datadir}/dbus-1/services/org.ladish.service
 %{_datadir}/dbus-1/services/org.ladish.conf.service
