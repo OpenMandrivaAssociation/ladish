@@ -1,4 +1,4 @@
-%define branch 1
+%define branch 0
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %branch
@@ -17,7 +17,7 @@ Release: 		%mkrel 1
 %if %branch
 Source:         http://ladish.org/download/%{name}-%version-%git_snapshot.tar.bz2
 %else
-Source:         http://ladish.org/download/%name-%version.tar.bz2
+Source:         http://ladish.org/download/%name-%version-with-deps.tar.bz2
 %endif
 URL:            http://ladish.org
 License:        GPLv2
@@ -40,10 +40,9 @@ BuildRequires:  intltool
 
 
 %description
-Session management system
-for JACK applications on GNU/Linux. Its aim is to have
-many different audio programs running at once, to save their setup,
-close them down and then easily reload the setup at some other
+Session management system for JACK applications on GNU/Linux. Its aim 
+is to have many different audio programs running at once, to save their
+setup, close them down and then easily reload the setup at some other
 time. ladish doesn't deal with any kind of audio or MIDI data itself;
 it just runs programs, deals with saving/loading (arbitrary) data and
 connects JACK ports together. 
@@ -67,7 +66,7 @@ This package is mandatory for installing the LADI Audio Session Handler.
 %if %branch
 %setup -q -n %{name}-%{version}-%{git_snapshot}
 %else
-%setup -q
+%setup -q 
 %endif
 
 %build
