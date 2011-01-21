@@ -9,9 +9,9 @@ Name:           ladish
 Summary:        LADI Audio Session Handler
 Version:        0.3
 %if %branch
-Release: 		%mkrel -c %git_snapshot 1
+Release:        %mkrel -c %git_snapshot 1
 %else
-Release: 		%mkrel 1
+Release:        %mkrel 2
 %endif
 
 %if %branch
@@ -22,7 +22,7 @@ Source:         http://ladish.org/download/%name-%version-with-deps.tar.bz2
 URL:            http://ladish.org
 License:        GPLv2
 Group:          Sound
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot 
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 Requires:   laditools
 BuildRequires:  libjack-devel >= 1.9.0
@@ -40,12 +40,12 @@ BuildRequires:  intltool
 
 
 %description
-Session management system for JACK applications on GNU/Linux. Its aim 
+Session management system for JACK applications on GNU/Linux. Its aim
 is to have many different audio programs running at once, to save their
 setup, close them down and then easily reload the setup at some other
 time. ladish doesn't deal with any kind of audio or MIDI data itself;
 it just runs programs, deals with saving/loading (arbitrary) data and
-connects JACK ports together. 
+connects JACK ports together.
 Ladish has a GUI frontend called gladish, based on lpatchage (LADI Patchage)
 and the ladish_control command line app for headless operation.
 
@@ -54,7 +54,7 @@ Summary:    Tools to configure Jack
 Group:      Sound
 Requires:   jackit >= 1.9.0
 Requires:   pygtk2.0 pygtk2.0-libglade librsvg
-Requires:   python-vte python-pyxml python-yaml 
+Requires:   python-vte python-pyxml python-yaml
 Provides:   laditools
 
 %description -n laditools
@@ -66,7 +66,7 @@ This package is mandatory for installing the LADI Audio Session Handler.
 %if %branch
 %setup -q -n %{name}-%{version}-%{git_snapshot}
 %else
-%setup -q 
+%setup -q
 %endif
 
 %build
@@ -82,7 +82,7 @@ python setup.py install --prefix=%{buildroot}%{_prefix}
 %clean
 #rm -rf %{buildroot}
 
-%files 
+%files
 %defattr(-,root,root)
 %doc %{_datadir}/%{name}/README
 %doc %{_datadir}/%{name}/AUTHORS
