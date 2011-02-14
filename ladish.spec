@@ -11,7 +11,7 @@ Version:        0.3
 %if %branch
 Release:        %mkrel -c %git_snapshot 1
 %else
-Release:        %mkrel 2
+Release:        %mkrel 3
 %endif
 
 %if %branch
@@ -55,6 +55,7 @@ Group:      Sound
 Requires:   jackit >= 1.9.0
 Requires:   pygtk2.0 pygtk2.0-libglade librsvg
 Requires:   python-vte python-pyxml python-yaml
+Requires:   python-dbus
 Provides:   laditools
 
 %description -n laditools
