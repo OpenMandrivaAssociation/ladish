@@ -9,7 +9,7 @@ Name:           ladish
 Summary:        LADI Audio Session Handler
 Version:        0.3
 %if %branch
-Release:        %mkrel -c %git_snapshot 2
+Release:        %mkrel -c %git_snapshot 3
 %else
 Release:        %mkrel 3
 %endif
