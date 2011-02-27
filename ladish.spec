@@ -11,7 +11,7 @@ Version:        0.3
 %if %branch
 Release:        %mkrel -c %git_snapshot 3
 %else
-Release:        %mkrel 3
+Release:        %mkrel 4
 %endif
 
 %if %branch
