@@ -11,7 +11,7 @@ Version:        0.3
 %if %branch
 Release:        %mkrel -c %git_snapshot 3
 %else
-Release:        %mkrel 4
+Release:        %mkrel 5
 %endif
 
 %if %branch
@@ -37,7 +37,7 @@ BuildRequires:  flowcanvas-devel >= 0.6.4
 BuildRequires:  pygtk2.0-devel
 BuildRequires:  python-yaml
 BuildRequires:  intltool
-
+Suggests:       a2jmidid
 
 %description
 Session management system for JACK applications on GNU/Linux. Its aim
