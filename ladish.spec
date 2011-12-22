@@ -7,11 +7,11 @@
 
 Name:           ladish
 Summary:        LADI Audio Session Handler
-Version:        0.3
+Version:        1
 %if %branch
-Release:        %mkrel -c %git_snapshot 3
+Release:        %git_snapshot
 %else
-Release:        %mkrel 5
+Release:        1
 %endif
 
 %if %branch
@@ -25,10 +25,10 @@ Group:          Sound
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 Requires:   laditools
-BuildRequires:  libjack-devel >= 1.9.0
+BuildRequires:  jackit-devel >= 1.9.0
 BuildRequires:  alsa-lib-devel
 BuildRequires:  libuuid-devel
-BuildRequires:  libdbus-1-devel
+BuildRequires:  dbus-devel
 BuildRequires:  expat-devel
 BuildRequires:  gtk2-devel
 BuildRequires:  dbus-glib-devel
