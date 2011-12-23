@@ -11,7 +11,7 @@ Version:        1
 %if %branch
 Release:        %git_snapshot
 %else
-Release:        1
+Release:        2
 %endif
 
 %if %branch
@@ -25,6 +25,7 @@ Group:          Sound
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 Requires:   laditools
+Requires:   ladish-alsapid
 BuildRequires:  jackit-devel >= 1.9.0
 BuildRequires:  alsa-lib-devel
 BuildRequires:  libuuid-devel
@@ -53,15 +54,22 @@ and the ladish_control command line app for headless operation.
 Summary:    Tools to configure Jack
 Group:      Sound
 Requires:   jackit >= 1.9.0
-Requires:   pygtk2.0 pygtk2.0-libglade librsvg
+Requires:   pygtk2.0 pygtk2.0-libglade
 Requires:   python-vte python-pyxml python-yaml
 Requires:   python-dbus
-Provides:   laditools
 
 %description -n laditools
 A suite of tools to configure and control the Jack Audio Connection Kit.
 Laditools contains laditray, a tray icon control tool for Jack D-Bus.
 This package is mandatory for installing the LADI Audio Session Handler.
+
+%package alsapid
+Summary:    Preloaded library for Ladish-ALSA interface
+Group:      Sound
+
+%description alsapid
+Part of the LADI Audio Session Handler. This library is preloaded to the
+ladish daemon for better interfacing ladish with ALSA
 
 %prep
 %if %branch
@@ -80,8 +88,12 @@ rm -rf %buildroot
 cd laditools
 python setup.py install --prefix=%{buildroot}%{_prefix}
 
+#Fix desktop file category syntax
+perl -pi -e 's/AudioVideo/AudioVideo;/g' %buildroot/%{_datadir}/applications/laditray.desktop
+perl -pi -e 's/Settings/Settings;/g' %buildroot/%{_datadir}/applications/ladiconf.desktop
+
 %clean
-#rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
@@ -90,20 +102,19 @@ python setup.py install --prefix=%{buildroot}%{_prefix}
 %doc %{_datadir}/%{name}/COPYING
 %doc %{_datadir}/%{name}/NEWS
 
+%lang(de) %{_localedir}/de/LC_MESSAGES/ladish.mo
+%lang(fr) %{_localedir}/fr/LC_MESSAGES/ladish.mo
+%lang(ru) %{_localedir}/ru/LC_MESSAGES/ladish.mo
+
 %{_bindir}/gladish
 %{_bindir}/ladishd
 %{_bindir}/jmcore
 %{_bindir}/ladiconfd
 %{_bindir}/ladish_control
-%{_prefix}/lib/libalsapid.so
 
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/gladish.ui
 %{_datadir}/%{name}/*.png
-
-%{_datadir}/locale/de/LC_MESSAGES/ladish.mo
-%{_datadir}/locale/fr/LC_MESSAGES/ladish.mo
-%{_datadir}/locale/ru/LC_MESSAGES/ladish.mo
 
 %{_datadir}/dbus-1/services/org.ladish.service
 %{_datadir}/dbus-1/services/org.ladish.conf.service
@@ -124,3 +135,5 @@ python setup.py install --prefix=%{buildroot}%{_prefix}
 %{_datadir}/laditools/*
 %{_datadir}/pixmaps/*.svg
 
+%files alsapid
+%{_prefix}/lib/libalsapid.so
