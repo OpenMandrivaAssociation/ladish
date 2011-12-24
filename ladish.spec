@@ -11,7 +11,7 @@ Version:        1
 %if %branch
 Release:        %git_snapshot
 %else
-Release:        2
+Release:        3
 %endif
 
 %if %branch
