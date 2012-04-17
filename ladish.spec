@@ -27,7 +27,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:   laditools
 Requires:   ladish-alsapid
 BuildRequires:  jackit-devel >= 1.9.0
-BuildRequires:  alsa-lib-devel
+BuildRequires:  libalsa-devel
 BuildRequires:  libuuid-devel
 BuildRequires:  dbus-devel
 BuildRequires:  expat-devel
