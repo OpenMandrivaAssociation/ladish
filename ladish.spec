@@ -137,3 +137,79 @@ rm -rf %{buildroot}
 
 %files alsapid
 %{_prefix}/lib/libalsapid.so
+
+
+%changelog
+* Tue Apr 17 2012 Frank Kober <emuse@mandriva.org> 1-4
++ Revision: 791523
+- rebuild for dependency check
+
+* Sat Dec 24 2011 Frank Kober <emuse@mandriva.org> 1-3
++ Revision: 745022
+- rebuild to link against newer libpng
+
+* Fri Dec 23 2011 Frank Kober <emuse@mandriva.org> 1-2
++ Revision: 744880
+- cleanup some warnings
+
+* Thu Dec 22 2011 Frank Kober <emuse@mandriva.org> 1-1
++ Revision: 744587
+- new version 1
+
+* Wed Apr 20 2011 Frank Kober <emuse@mandriva.org> 0.3-5
++ Revision: 656129
+- Suggests a2jmidid added
+
+* Sun Feb 27 2011 Funda Wang <fwang@mandriva.org> 0.3-4
++ Revision: 640608
+- rebuild
+- rebuild
+- rebuild to obsolete old packages
+
+* Mon Feb 14 2011 Frank Kober <emuse@mandriva.org> 0.3-3
++ Revision: 637800
+- add python-dbus requires
+
+* Fri Jan 21 2011 Frank Kober <emuse@mandriva.org> 0.3-2
++ Revision: 632074
+- rebuild for new flowcanvas
+
+* Sun Jan 09 2011 Frank Kober <emuse@mandriva.org> 0.3-1
++ Revision: 630832
+- new version 0.3
+
+* Wed Dec 29 2010 Frank Kober <emuse@mandriva.org> 0.3-0.git20101228.1mdv2011.0
++ Revision: 625887
+- %%{_localedir} doesn't seem to exist
+- new git snapshot
+
+* Sun Dec 12 2010 Frank Kober <emuse@mandriva.org> 0.3-0.git20101212.1mdv2011.0
++ Revision: 620613
+- new git snapshot
+
+* Mon Nov 01 2010 Frank Kober <emuse@mandriva.org> 0.3-0.git20101101.1mdv2011.0
++ Revision: 591667
+- fix path for alsapid.so
+- add alsa-lib-devel BR
+- update to current git version
+
+* Sun Apr 04 2010 Frank Kober <emuse@mandriva.org> 0.2-3mdv2010.1
++ Revision: 531470
+- add librsvg to Requires
+
+* Sat Mar 20 2010 Frank Kober <emuse@mandriva.org> 0.2-2mdv2010.1
++ Revision: 525524
+- bump release 2
+- add pygtk2.0-libglade to laditools Requires
+
+* Tue Feb 23 2010 Stéphane Téletchéa <steletch@mandriva.org> 0.2-1mdv2010.1
++ Revision: 510274
+- Fix python path since it does not matter if this ends in lib or lib64 dirs
+
+  + Frank Kober <emuse@mandriva.org>
+    - wrong BR name fixed
+    - BR adjusted
+    - missing pygtk2.0 added to Requires
+    - import ladish
+
+
