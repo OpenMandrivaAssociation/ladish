@@ -19,6 +19,7 @@ Source:         http://ladish.org/download/%{name}-%version-%git_snapshot.tar.bz
 %else
 Source:         http://ladish.org/download/%name-%version-with-deps.tar.bz2
 %endif
+Patch0:		ladish-glibc.patch
 URL:            http://ladish.org
 License:        GPLv2
 Group:          Sound
@@ -77,6 +78,7 @@ ladish daemon for better interfacing ladish with ALSA
 %else
 %setup -q
 %endif
+%apply_patches
 
 %build
 ./waf configure --prefix=%{_prefix}
