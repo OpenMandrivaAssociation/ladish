@@ -31,7 +31,7 @@ BuildRequires:  libalsa-devel
 BuildRequires:  libuuid-devel
 BuildRequires:  dbus-devel
 BuildRequires:  expat-devel
-BuildRequires:  gtk2-devel
+BuildRequires:  gtk+2.0-devel
 BuildRequires:  dbus-glib-devel
 BuildRequires:  boost-devel
 BuildRequires:  flowcanvas-devel >= 0.6.4
