@@ -5,6 +5,8 @@
 %define git_snapshot git20101228
 %endif
 
+%define debug_package %{nil}
+
 Name:           ladish
 Summary:        LADI Audio Session Handler
 Version:        1
