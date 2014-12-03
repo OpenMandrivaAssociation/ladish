@@ -7,41 +7,40 @@
 
 %define debug_package %{nil}
 
-Name:           ladish
-Summary:        LADI Audio Session Handler
-Version:        1
+Name:			ladish
+Summary:		LADI Audio Session Handler
+Version:		1
 %if %branch
-Release:        %git_snapshot
+Release:		%git_snapshot
 %else
-Release:        4
+Release:		4.1
 %endif
 
 %if %branch
-Source:         http://ladish.org/download/%{name}-%version-%git_snapshot.tar.bz2
+Source:			http://ladish.org/download/%{name}-%version-%git_snapshot.tar.bz2
 %else
-Source:         http://ladish.org/download/%name-%version-with-deps.tar.bz2
+Source:			http://ladish.org/download/%name-%version-with-deps.tar.bz2
 %endif
-Patch0:		ladish-glibc.patch
-URL:            http://ladish.org
-License:        GPLv2
-Group:          Sound
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Patch0:			ladish-glibc.patch
+URL:			http://ladish.org
+License:		GPLv2
+Group:			Sound
 
-Requires:   laditools
-Requires:   ladish-alsapid
-BuildRequires:  jackit-devel >= 1.9.0
-BuildRequires:  libalsa-devel
-BuildRequires:  libuuid-devel
-BuildRequires:  dbus-devel
-BuildRequires:  expat-devel
-BuildRequires:  gtk+2.0-devel
-BuildRequires:  dbus-glib-devel
-BuildRequires:  boost-devel
-BuildRequires:  flowcanvas-devel >= 0.6.4
-BuildRequires:  pygtk2.0-devel
-BuildRequires:  python-yaml
-BuildRequires:  intltool
-Suggests:       a2jmidid
+Requires:	laditools
+Requires:	ladish-alsapid
+BuildRequires:	jackit-devel >= 1.9.0
+BuildRequires:	pkgconfig(alsa)
+BuildRequires:	pkgconfig(uuid)
+BuildRequires:	dbus-devel
+BuildRequires:	expat-devel
+BuildRequires:	pkgconfig(gtk+-2.0)
+BuildRequires:	pkgconfig(dbus-glib-1)
+BuildRequires:	boost-devel
+BuildRequires:	flowcanvas-devel >= 0.6.4
+BuildRequires:	pygtk2.0-devel
+BuildRequires:	python-yaml
+BuildRequires:	intltool
+Suggests:		a2jmidid
 
 %description
 Session management system for JACK applications on GNU/Linux. Its aim
@@ -54,12 +53,14 @@ Ladish has a GUI frontend called gladish, based on lpatchage (LADI Patchage)
 and the ladish_control command line app for headless operation.
 
 %package -n laditools
-Summary:    Tools to configure Jack
-Group:      Sound
-Requires:   jackit >= 1.9.0
-Requires:   pygtk2.0 pygtk2.0-libglade
-Requires:   python-vte python-pyxml python-yaml
-Requires:   python-dbus
+Summary:	Tools to configure Jack
+Group:		Sound
+Requires:	jackit >= 1.9.0
+Requires:	pygtk2.0
+Requires:	pygtk2.0-libglade
+Requires:	python-vte
+Requires:	python-yaml
+Requires:	python-dbus
 
 %description -n laditools
 A suite of tools to configure and control the Jack Audio Connection Kit.
@@ -141,79 +142,3 @@ rm -rf %{buildroot}
 
 %files alsapid
 %{_prefix}/lib/libalsapid.so
-
-
-%changelog
-* Tue Apr 17 2012 Frank Kober <emuse@mandriva.org> 1-4
-+ Revision: 791523
-- rebuild for dependency check
-
-* Sat Dec 24 2011 Frank Kober <emuse@mandriva.org> 1-3
-+ Revision: 745022
-- rebuild to link against newer libpng
-
-* Fri Dec 23 2011 Frank Kober <emuse@mandriva.org> 1-2
-+ Revision: 744880
-- cleanup some warnings
-
-* Thu Dec 22 2011 Frank Kober <emuse@mandriva.org> 1-1
-+ Revision: 744587
-- new version 1
-
-* Wed Apr 20 2011 Frank Kober <emuse@mandriva.org> 0.3-5
-+ Revision: 656129
-- Suggests a2jmidid added
-
-* Sun Feb 27 2011 Funda Wang <fwang@mandriva.org> 0.3-4
-+ Revision: 640608
-- rebuild
-- rebuild
-- rebuild to obsolete old packages
-
-* Mon Feb 14 2011 Frank Kober <emuse@mandriva.org> 0.3-3
-+ Revision: 637800
-- add python-dbus requires
-
-* Fri Jan 21 2011 Frank Kober <emuse@mandriva.org> 0.3-2
-+ Revision: 632074
-- rebuild for new flowcanvas
-
-* Sun Jan 09 2011 Frank Kober <emuse@mandriva.org> 0.3-1
-+ Revision: 630832
-- new version 0.3
-
-* Wed Dec 29 2010 Frank Kober <emuse@mandriva.org> 0.3-0.git20101228.1mdv2011.0
-+ Revision: 625887
-- %%{_localedir} doesn't seem to exist
-- new git snapshot
-
-* Sun Dec 12 2010 Frank Kober <emuse@mandriva.org> 0.3-0.git20101212.1mdv2011.0
-+ Revision: 620613
-- new git snapshot
-
-* Mon Nov 01 2010 Frank Kober <emuse@mandriva.org> 0.3-0.git20101101.1mdv2011.0
-+ Revision: 591667
-- fix path for alsapid.so
-- add alsa-lib-devel BR
-- update to current git version
-
-* Sun Apr 04 2010 Frank Kober <emuse@mandriva.org> 0.2-3mdv2010.1
-+ Revision: 531470
-- add librsvg to Requires
-
-* Sat Mar 20 2010 Frank Kober <emuse@mandriva.org> 0.2-2mdv2010.1
-+ Revision: 525524
-- bump release 2
-- add pygtk2.0-libglade to laditools Requires
-
-* Tue Feb 23 2010 Stéphane Téletchéa <steletch@mandriva.org> 0.2-1mdv2010.1
-+ Revision: 510274
-- Fix python path since it does not matter if this ends in lib or lib64 dirs
-
-  + Frank Kober <emuse@mandriva.org>
-    - wrong BR name fixed
-    - BR adjusted
-    - missing pygtk2.0 added to Requires
-    - import ladish
-
-
