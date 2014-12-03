@@ -31,6 +31,7 @@ Requires:	ladish-alsapid
 BuildRequires:	jackit-devel >= 1.9.0
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(uuid)
+BuildRequires:	pkgconfig(python2)
 BuildRequires:	dbus-devel
 BuildRequires:	expat-devel
 BuildRequires:	pkgconfig(gtk+-2.0)
@@ -91,7 +92,7 @@ ladish daemon for better interfacing ladish with ALSA
 rm -rf %buildroot
 ./waf install --destdir=%{buildroot}
 cd laditools
-python setup.py install --prefix=%{buildroot}%{_prefix}
+python2 setup.py install --prefix=%{buildroot}%{_prefix}
 
 #Fix desktop file category syntax
 perl -pi -e 's/AudioVideo/AudioVideo;/g' %buildroot/%{_datadir}/applications/laditray.desktop
