@@ -13,7 +13,7 @@ Version:		1
 %if %branch
 Release:		%git_snapshot
 %else
-Release:		5
+Release:		6
 %endif
 
 %if %branch
