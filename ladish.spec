@@ -82,7 +82,7 @@ ladish daemon for better interfacing ladish with ALSA
 %else
 %setup -q
 %endif
-%apply_patches
+%autopatch -p1
 
 %build
 ./waf configure --prefix=%{_prefix}
