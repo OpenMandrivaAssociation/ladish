@@ -22,7 +22,7 @@ Source:			http://ladish.org/download/%{name}-%version-%git_snapshot.tar.bz2
 Source:			http://ladish.org/download/%name-%version-with-deps.tar.bz2
 %endif
 Patch0:			ladish-glibc.patch
-URL:			http://ladish.org
+URL:			https://ladish.org
 License:		GPLv2
 Group:			Sound
 
