@@ -23,6 +23,7 @@ Patch1:		ladish-1.3-aarch64.patch
 BuildRequires:	meson
 BuildRequires:	git
 BuildRequires:	intltool
+BuildRequires:librsvg
 BuildRequires:	boost-devel
 BuildRequires:	pkgconfig(alsa)
 BuildRequires: 	pkgconfig(expat)
@@ -199,6 +200,7 @@ popd
 %install
 %meson_install
 
+# Install laditools
 pushd laditools
 	%py_install
 	mkdir -p %{buildroot}%{_datadir}/locale
