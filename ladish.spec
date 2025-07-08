@@ -11,7 +11,7 @@
 Summary:	LADI Audio Session Handler
 Name:		ladish
 Version:	1.3
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Sound
 # Original Url: https://ladish.org
@@ -141,7 +141,7 @@ library.
 Summary:	Tools to configure Jack
 Group:		Sound
 Provides:	python-laditools = %{version}-%{release}
-Requires:	python-vte
+#Requires:	python-vte
 Requires:	python-yaml
 Requires:	python-dbus
 
