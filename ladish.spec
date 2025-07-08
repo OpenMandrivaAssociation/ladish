@@ -11,7 +11,7 @@
 Summary:	LADI Audio Session Handler
 Name:		ladish
 Version:	1.3
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Sound
 # Original Url: https://ladish.org
