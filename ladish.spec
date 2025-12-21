@@ -23,7 +23,7 @@ Patch1:		ladish-1.3-aarch64.patch
 BuildRequires:	meson
 BuildRequires:	git
 BuildRequires:	intltool
-BuildRequires:librsvg
+BuildRequires:	librsvg
 BuildRequires:	boost-devel
 BuildRequires:	pkgconfig(alsa)
 BuildRequires: 	pkgconfig(expat)
@@ -38,9 +38,9 @@ BuildRequires:	pkgconfig(libgnomecanvasmm-2.6)
 # For laditools
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(librsvg-2.0)
-BuildRequires:	pkgconfig(python3)
-BuildRequires:	python-distutils-extra
-BuildRequires:	python-setuptools
+BuildRequires:	pkgconfig(python)
+BuildRequires:	python%{pyver}dist(python-distutils-extra)
+BuildRequires:	python%{pyver}dist(setuptools)
 %if %{with alsapid}
 Requires:	ladish-alsapid
 %else
