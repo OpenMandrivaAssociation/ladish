@@ -11,7 +11,7 @@
 Summary:	LADI Audio Session Handler
 Name:		ladish
 Version:	1.3
-Release:	4
+Release:	5
 License:	GPLv2+
 Group:		Sound
 # Original Url: https://ladish.org
@@ -38,7 +38,7 @@ BuildRequires:	pkgconfig(libgnomecanvasmm-2.6)
 # For laditools
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(librsvg-2.0)
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	python%{pyver}dist(python-distutils-extra)
 BuildRequires:	python%{pyver}dist(setuptools)
 %if %{with alsapid}
